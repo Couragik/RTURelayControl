@@ -7,11 +7,14 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
 [assembly: AssemblyTitle("RTURelayControl")]
-[assembly: AssemblyDescription("Allow remote control relay modules over RS485 by Modbus RTU protocol")]
+[assembly: AssemblyDescription("Программа позволяет управлять платами реле с китая " +
+    "и считывать их состояние через последовательный порт по протоколу Modbus RTU. " +
+    "Поддерживается одновременная работа нескольких устройств с разными адресами на " +
+    "одном COM интерфейсе. Поддерживаемые Modbus комманды описаны в руководстве.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nikita Grebenkov")]
 [assembly: AssemblyProduct("RTURelayControl")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright ©  2026 Pavlodar")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

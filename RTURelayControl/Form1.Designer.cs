@@ -41,20 +41,13 @@ namespace RTURelayControl
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.connoptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devicelistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.devicesurveyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.context1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.context2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.devicelistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventlogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorlogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modbuslogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorlogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interfacesetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +59,13 @@ namespace RTURelayControl
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usermanualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.context1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.context2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -98,7 +98,7 @@ namespace RTURelayControl
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.exitToolStripMenuItem.Text = "Выход";
             // 
             // connectionsToolStripMenuItem
@@ -152,81 +152,22 @@ namespace RTURelayControl
             this.devicesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.devicesToolStripMenuItem.Text = "Устройства";
             // 
-            // devicelistToolStripMenuItem
-            // 
-            this.devicelistToolStripMenuItem.Name = "devicelistToolStripMenuItem";
-            this.devicelistToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.devicelistToolStripMenuItem.Text = "Список устройств...";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
-            // 
             // devicesurveyToolStripMenuItem
             // 
             this.devicesurveyToolStripMenuItem.Name = "devicesurveyToolStripMenuItem";
             this.devicesurveyToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.devicesurveyToolStripMenuItem.Text = "Включить опрос";
             // 
-            // statusStrip1
+            // toolStripSeparator2
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
             // 
-            // dataGridView1
+            // devicelistToolStripMenuItem
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(760, 163);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.context1ToolStripMenuItem,
-            this.context2ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
-            // 
-            // context1ToolStripMenuItem
-            // 
-            this.context1ToolStripMenuItem.Name = "context1ToolStripMenuItem";
-            this.context1ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.context1ToolStripMenuItem.Text = "context1";
-            // 
-            // context2ToolStripMenuItem
-            // 
-            this.context2ToolStripMenuItem.Name = "context2ToolStripMenuItem";
-            this.context2ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.context2ToolStripMenuItem.Text = "context2";
-            // 
-            // button1
-            // 
-            this.button1.ContextMenuStrip = this.contextMenuStrip1;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(112, 228);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "Column3";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewButtonColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewButtonColumn1.Text = "1";
+            this.devicelistToolStripMenuItem.Name = "devicelistToolStripMenuItem";
+            this.devicelistToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.devicelistToolStripMenuItem.Text = "Список устройств...";
             // 
             // eventsToolStripMenuItem
             // 
@@ -244,17 +185,17 @@ namespace RTURelayControl
             this.eventlogToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.eventlogToolStripMenuItem.Text = "Журнал событий...";
             // 
-            // errorlogToolStripMenuItem
-            // 
-            this.errorlogToolStripMenuItem.Name = "errorlogToolStripMenuItem";
-            this.errorlogToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.errorlogToolStripMenuItem.Text = "Журнал ошибок...";
-            // 
             // modbuslogToolStripMenuItem
             // 
             this.modbuslogToolStripMenuItem.Name = "modbuslogToolStripMenuItem";
             this.modbuslogToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.modbuslogToolStripMenuItem.Text = "Журнал обмена Modbus...";
+            // 
+            // errorlogToolStripMenuItem
+            // 
+            this.errorlogToolStripMenuItem.Name = "errorlogToolStripMenuItem";
+            this.errorlogToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.errorlogToolStripMenuItem.Text = "Журнал ошибок...";
             // 
             // settingsToolStripMenuItem
             // 
@@ -332,6 +273,66 @@ namespace RTURelayControl
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.aboutToolStripMenuItem.Text = "О программе";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(11, 40);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(760, 163);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.context1ToolStripMenuItem,
+            this.context2ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            // 
+            // context1ToolStripMenuItem
+            // 
+            this.context1ToolStripMenuItem.Name = "context1ToolStripMenuItem";
+            this.context1ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.context1ToolStripMenuItem.Text = "context1";
+            // 
+            // context2ToolStripMenuItem
+            // 
+            this.context2ToolStripMenuItem.Name = "context2ToolStripMenuItem";
+            this.context2ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.context2ToolStripMenuItem.Text = "context2";
+            // 
+            // button1
+            // 
+            this.button1.ContextMenuStrip = this.contextMenuStrip1;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.Location = new System.Drawing.Point(112, 228);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Column3";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewButtonColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewButtonColumn1.Text = "1";
             // 
             // Form1
             // 

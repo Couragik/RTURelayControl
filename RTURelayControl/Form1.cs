@@ -57,6 +57,12 @@ namespace RTURelayControl
                     .Cells[2] = cell;
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
+        }
     }
 
     public class RelayInfo

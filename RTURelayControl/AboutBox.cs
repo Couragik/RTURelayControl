@@ -20,6 +20,8 @@ namespace RTURelayControl
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+            this.textBoxDescription.Text += Environment.NewLine + "Для связи:" +
+                " greben_kov@mail.ru," + Environment.NewLine + "telegram: @Couragik";
         }
 
         #region Методы доступа к атрибутам сборки
