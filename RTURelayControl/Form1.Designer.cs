@@ -78,8 +78,8 @@ namespace RTURelayControl
             this.connectionsToolStripMenuItem,
             this.devicesToolStripMenuItem,
             this.eventsToolStripMenuItem,
-            this.settingsToolStripMenuItem,
             this.diagnosisToolStripMenuItem,
+            this.settingsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -98,7 +98,7 @@ namespace RTURelayControl
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Выход";
             // 
             // connectionsToolStripMenuItem
@@ -200,8 +200,8 @@ namespace RTURelayControl
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.interfacesetToolStripMenuItem,
             this.programsetToolStripMenuItem,
+            this.interfacesetToolStripMenuItem,
             this.timersetToolStripMenuItem,
             this.automatsetToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
@@ -325,6 +325,7 @@ namespace RTURelayControl
             this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridViewButtonColumn1
             // 

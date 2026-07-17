@@ -17,6 +17,10 @@ namespace RTURelayControl
         {
             InitializeComponent();
 
+            AppSettings.Load();
+
+            AppSettings.RefreshConfig();
+
             dataGridView1.ColumnCount = 3;
 
 
@@ -62,6 +66,20 @@ namespace RTURelayControl
         {
             AboutBox about = new AboutBox();
             about.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+               Properties.Settings.Default.test,
+               "Сообщение",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Information,
+               MessageBoxDefaultButton.Button1,
+               MessageBoxOptions.DefaultDesktopOnly);
+            Properties.Settings.Default.test = "777";
+            //Properties.Settings.Default.test3 = "678";
+            Properties.Settings.Default.Save();
         }
     }
 
