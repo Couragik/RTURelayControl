@@ -8,14 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Net.Configuration;
 
 namespace RTURelayControl
 {
+    
+    //Создаем список enum для открытия нужной секции в окне настроек
+    public enum SettingsSectionEnum
+    {
+        Program,
+        Interface,
+        Timer,
+        Automat
+    
+    }
+
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+            InitializeMenuTags();
 
             AppSettings.Load();
 
@@ -70,6 +83,7 @@ namespace RTURelayControl
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /*
             MessageBox.Show(
                Properties.Settings.Default.test,
                "Сообщение",
@@ -80,7 +94,29 @@ namespace RTURelayControl
             Properties.Settings.Default.test = "777";
             //Properties.Settings.Default.test3 = "678";
             Properties.Settings.Default.Save();
+            */
+
         }
+
+        public void InitializeMenuTags()
+        {   
+            programsetToolStripMenuItem.Tag = SettingsSectionEnum.Program;
+            interfacesetToolStripMenuItem.Tag = SettingsSectionEnum.Interface;
+            timersetToolStripMenuItem.Tag = SettingsSectionEnum.Timer;
+            automatsetToolStripMenuItem.Tag = SettingsSectionEnum.Automat;
+        }
+
+        private void SettingsMenuItem_Click(object sender, EventArgs e)
+        {
+            var menuItem = (ToolStripMenuItem)sender;
+            var section = (SettingsSectionEnum)menuItem.Tag;
+
+            using (var settingsForm = new FormSettings(section))
+            {
+                settingsForm.ShowDialog();
+            }
+        }
+
     }
 
     public class RelayInfo

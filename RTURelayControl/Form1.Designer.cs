@@ -48,14 +48,14 @@ namespace RTURelayControl
             this.eventlogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modbuslogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorlogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.interfacesetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.programsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timersetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.automatsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diagnosisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modbusmonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modbusrequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interfacesetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timersetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automatsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usermanualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +98,7 @@ namespace RTURelayControl
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.exitToolStripMenuItem.Text = "Выход";
             // 
             // connectionsToolStripMenuItem
@@ -197,41 +197,6 @@ namespace RTURelayControl
             this.errorlogToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.errorlogToolStripMenuItem.Text = "Журнал ошибок...";
             // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.programsetToolStripMenuItem,
-            this.interfacesetToolStripMenuItem,
-            this.timersetToolStripMenuItem,
-            this.automatsetToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.settingsToolStripMenuItem.Text = "Настройки";
-            // 
-            // interfacesetToolStripMenuItem
-            // 
-            this.interfacesetToolStripMenuItem.Name = "interfacesetToolStripMenuItem";
-            this.interfacesetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.interfacesetToolStripMenuItem.Text = "Интерфейс...";
-            // 
-            // programsetToolStripMenuItem
-            // 
-            this.programsetToolStripMenuItem.Name = "programsetToolStripMenuItem";
-            this.programsetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.programsetToolStripMenuItem.Text = "Программа...";
-            // 
-            // timersetToolStripMenuItem
-            // 
-            this.timersetToolStripMenuItem.Name = "timersetToolStripMenuItem";
-            this.timersetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.timersetToolStripMenuItem.Text = "Опрос и таймауты...";
-            // 
-            // automatsetToolStripMenuItem
-            // 
-            this.automatsetToolStripMenuItem.Name = "automatsetToolStripMenuItem";
-            this.automatsetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.automatsetToolStripMenuItem.Text = "Автоматизация...";
-            // 
             // diagnosisToolStripMenuItem
             // 
             this.diagnosisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -252,6 +217,49 @@ namespace RTURelayControl
             this.modbusrequestToolStripMenuItem.Name = "modbusrequestToolStripMenuItem";
             this.modbusrequestToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.modbusrequestToolStripMenuItem.Text = "Ручной запрос Modbus...";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.programsetToolStripMenuItem,
+            this.interfacesetToolStripMenuItem,
+            this.timersetToolStripMenuItem,
+            this.automatsetToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.settingsToolStripMenuItem.Text = "Настройки";
+            // 
+            // programsetToolStripMenuItem
+            // 
+            this.programsetToolStripMenuItem.Name = "programsetToolStripMenuItem";
+            this.programsetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.programsetToolStripMenuItem.Tag = "";
+            this.programsetToolStripMenuItem.Text = "Программа...";
+            this.programsetToolStripMenuItem.Click += new System.EventHandler(this.SettingsMenuItem_Click);
+            // 
+            // interfacesetToolStripMenuItem
+            // 
+            this.interfacesetToolStripMenuItem.Name = "interfacesetToolStripMenuItem";
+            this.interfacesetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.interfacesetToolStripMenuItem.Tag = "";
+            this.interfacesetToolStripMenuItem.Text = "Интерфейс...";
+            this.interfacesetToolStripMenuItem.Click += new System.EventHandler(this.SettingsMenuItem_Click);
+            // 
+            // timersetToolStripMenuItem
+            // 
+            this.timersetToolStripMenuItem.Name = "timersetToolStripMenuItem";
+            this.timersetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.timersetToolStripMenuItem.Tag = "";
+            this.timersetToolStripMenuItem.Text = "Опрос и таймауты...";
+            this.timersetToolStripMenuItem.Click += new System.EventHandler(this.SettingsMenuItem_Click);
+            // 
+            // automatsetToolStripMenuItem
+            // 
+            this.automatsetToolStripMenuItem.Name = "automatsetToolStripMenuItem";
+            this.automatsetToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.automatsetToolStripMenuItem.Tag = "";
+            this.automatsetToolStripMenuItem.Text = "Автоматизация...";
+            this.automatsetToolStripMenuItem.Click += new System.EventHandler(this.SettingsMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
