@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Узел4");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Программа", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Интерфейс");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Опрос и таймауты");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Автоматизация");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Программа");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Интерфейс");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Опрос и таймауты");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Автоматизация");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
             this.settingsTreeView = new System.Windows.Forms.TreeView();
             this.tabControlSettings = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabProgram = new System.Windows.Forms.TabPage();
+            this.tabInterface = new System.Windows.Forms.TabPage();
+            this.tabTimer = new System.Windows.Forms.TabPage();
+            this.tabAutomat = new System.Windows.Forms.TabPage();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.tabControlSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,67 +48,112 @@
             // 
             this.settingsTreeView.Location = new System.Drawing.Point(12, 12);
             this.settingsTreeView.Name = "settingsTreeView";
-            treeNode1.Name = "Узел4";
-            treeNode1.Text = "Узел4";
-            treeNode2.Name = "NodeApp";
-            treeNode2.Tag = "SettingsSectionEnum.Program";
-            treeNode2.Text = "Программа";
-            treeNode3.Name = "NodeInterface";
-            treeNode3.Tag = "SettingsSectionEnum.Interface";
-            treeNode3.Text = "Интерфейс";
-            treeNode4.Name = "NodeTimer";
-            treeNode4.Tag = "SettingsSectionEnum.Timer";
-            treeNode4.Text = "Опрос и таймауты";
-            treeNode5.Name = "NodeAuto";
-            treeNode5.Tag = "SettingsSectionEnum.Automat";
-            treeNode5.Text = "Автоматизация";
+            treeNode1.Name = "NodeApp";
+            treeNode1.Tag = "SettingsSectionEnum.Program";
+            treeNode1.Text = "Программа";
+            treeNode2.Name = "NodeInterface";
+            treeNode2.Tag = "SettingsSectionEnum.Interface";
+            treeNode2.Text = "Интерфейс";
+            treeNode3.Name = "NodeTimer";
+            treeNode3.Tag = "SettingsSectionEnum.Timer";
+            treeNode3.Text = "Опрос и таймауты";
+            treeNode4.Name = "NodeAuto";
+            treeNode4.Tag = "SettingsSectionEnum.Automat";
+            treeNode4.Text = "Автоматизация";
             this.settingsTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
             treeNode2,
             treeNode3,
-            treeNode4,
-            treeNode5});
+            treeNode4});
             this.settingsTreeView.ShowLines = false;
             this.settingsTreeView.ShowPlusMinus = false;
             this.settingsTreeView.Size = new System.Drawing.Size(194, 426);
             this.settingsTreeView.TabIndex = 0;
+            this.settingsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.settingsTreeView_AfterSelect);
             // 
             // tabControlSettings
             // 
-            this.tabControlSettings.Controls.Add(this.tabPage1);
-            this.tabControlSettings.Controls.Add(this.tabPage2);
+            this.tabControlSettings.Controls.Add(this.tabProgram);
+            this.tabControlSettings.Controls.Add(this.tabInterface);
+            this.tabControlSettings.Controls.Add(this.tabTimer);
+            this.tabControlSettings.Controls.Add(this.tabAutomat);
             this.tabControlSettings.Location = new System.Drawing.Point(212, 8);
             this.tabControlSettings.Name = "tabControlSettings";
             this.tabControlSettings.SelectedIndex = 0;
-            this.tabControlSettings.Size = new System.Drawing.Size(465, 390);
+            this.tabControlSettings.Size = new System.Drawing.Size(465, 397);
             this.tabControlSettings.TabIndex = 1;
             // 
-            // tabPage1
+            // tabProgram
             // 
-            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(457, 364);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabProgram.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabProgram.Location = new System.Drawing.Point(4, 22);
+            this.tabProgram.Name = "tabProgram";
+            this.tabProgram.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProgram.Size = new System.Drawing.Size(457, 371);
+            this.tabProgram.TabIndex = 0;
+            this.tabProgram.Text = "tabProgram";
+            this.tabProgram.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabInterface
             // 
-            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabInterface.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabInterface.Location = new System.Drawing.Point(4, 22);
+            this.tabInterface.Name = "tabInterface";
+            this.tabInterface.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInterface.Size = new System.Drawing.Size(457, 371);
+            this.tabInterface.TabIndex = 1;
+            this.tabInterface.Text = "tabInterface";
+            this.tabInterface.UseVisualStyleBackColor = true;
+            // 
+            // tabTimer
+            // 
+            this.tabTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabTimer.Location = new System.Drawing.Point(4, 22);
+            this.tabTimer.Name = "tabTimer";
+            this.tabTimer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTimer.Size = new System.Drawing.Size(457, 371);
+            this.tabTimer.TabIndex = 2;
+            this.tabTimer.Text = "tabTimer";
+            this.tabTimer.UseVisualStyleBackColor = true;
+            // 
+            // tabAutomat
+            // 
+            this.tabAutomat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabAutomat.Location = new System.Drawing.Point(4, 22);
+            this.tabAutomat.Name = "tabAutomat";
+            this.tabAutomat.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAutomat.Size = new System.Drawing.Size(457, 371);
+            this.tabAutomat.TabIndex = 3;
+            this.tabAutomat.Text = "tabAutomat";
+            this.tabAutomat.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(593, 411);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(80, 27);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Отмена";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(507, 411);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(80, 27);
+            this.buttonSave.TabIndex = 3;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 450);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.tabControlSettings);
             this.Controls.Add(this.settingsTreeView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -123,7 +170,11 @@
 
         private System.Windows.Forms.TreeView settingsTreeView;
         private System.Windows.Forms.TabControl tabControlSettings;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabProgram;
+        private System.Windows.Forms.TabPage tabInterface;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.TabPage tabTimer;
+        private System.Windows.Forms.TabPage tabAutomat;
     }
 }

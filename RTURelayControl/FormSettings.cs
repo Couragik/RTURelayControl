@@ -14,8 +14,12 @@ namespace RTURelayControl
     {
         private readonly SettingsSectionEnum _initialSection;
 
+        private SettingsData _settingsDraft;
+
         public FormSettings(SettingsSectionEnum initialSection)
         {
+            _settingsDraft = AppSettings.Current.Clone();
+
             InitializeComponent();
             InitializeTags();
 
@@ -33,14 +37,27 @@ namespace RTURelayControl
             SelectSection(_initialSection);
         }
 
+        /// <summary>
+        /// Добавляет Enum теги к элементам навигации
+        /// </summary>
         public void InitializeTags()
         {
-            settingsTreeView.Nodes[0].Tag = SettingsSectionEnum.Program;
-            settingsTreeView.Nodes[1].Tag = SettingsSectionEnum.Interface;
-            settingsTreeView.Nodes[2].Tag = SettingsSectionEnum.Timer;
-            settingsTreeView.Nodes[3].Tag = SettingsSectionEnum.Automat;
+            //Задаем теги для TreeView
+            settingsTreeView.Nodes["NodeApp"].Tag = SettingsSectionEnum.Program;
+            settingsTreeView.Nodes["NodeInterface"].Tag = SettingsSectionEnum.Interface;
+            settingsTreeView.Nodes["NodeTimer"].Tag = SettingsSectionEnum.Timer;
+            settingsTreeView.Nodes["NodeAuto"].Tag = SettingsSectionEnum.Automat;
+
+            //Задаем теги для TabControl
+            tabProgram.Tag = SettingsSectionEnum.Program;
+            tabInterface.Tag = SettingsSectionEnum.Interface;
+            tabTimer.Tag = SettingsSectionEnum.Timer;
+            tabAutomat.Tag = SettingsSectionEnum.Automat;
         }
 
+        /// <summary>
+        /// Проверка TreeView для выбора нужного пункта меню и вкладки TabControl
+        /// </summary>
         private void SelectSection(SettingsSectionEnum section)
         {
             foreach (TreeNode node in settingsTreeView.Nodes)
@@ -54,5 +71,35 @@ namespace RTURelayControl
             }
         }
 
+        /// <summary>
+        /// Переключаем нужную вкладку в зависи от выбранного Enum тега
+        /// </summary>
+        private void SelectSettingsTab(SettingsSectionEnum section)
+        { 
+            foreach (TabPage tab in tabControlSettings.TabPages)
+            {
+                if ((SettingsSectionEnum)tab.Tag == section)
+                {
+                    tabControlSettings.SelectedTab = tab;
+                    break;
+                }
+            }
+        }
+
+        private void settingsTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            SelectSettingsTab((SettingsSectionEnum)e.Node.Tag);
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            _settingsDraft.PollInterval = 100;
+            AppSettings.SaveAndApply(_settingsDraft);
+        }
     }
 }

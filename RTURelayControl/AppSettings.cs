@@ -6,22 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using RTURelayControl.Properties;
 
 namespace RTURelayControl
 {
     public static class AppSettings
     {
-        public static int PollInterval => GetInt("PollInterval", 4);
+        public static SettingsData Current {  get; private set; }
+        
+        
+        /*
         public static string WavPath => GetString("WavPath", "");
         public static string FullWavPath;
         public static int MuteKeyNum => GetInt("MuteKeyNum", 1);
-        public static bool AutoStart => GetBool("AutoStart", false);
-        public static bool AutoScan => GetBool("AutoScan", false);
         public static bool DebugMode => GetBool("DebugMode", false);
 
         public static FileInfo WavFileInfo;
         public static Keys MuteKey;
         public static string WorkingPath = Directory.GetCurrentDirectory();
+        */
 
         //public string ProgramPath = System.IO.Path.Combine(Directory.GetCurrentDirectory());
         //openFileDialogWAV.InitialDirectory = System.IO.Path.GetFullPath(CombinedPath);
@@ -38,6 +41,34 @@ namespace RTURelayControl
             AutoStart = GetBool("AutoStart", false);
         }
         */
+
+        public static void Load()
+        {
+            Current = new SettingsData
+            {
+                AutoStart = GetBool("AutoStart", false),
+                AutoScan = GetBool("AutoScan", false),
+                PollInterval = GetInt("PollInterval", 100)
+            };
+            
+            //LoadWav();
+
+            //SetMuteButton();
+        }
+
+        /// <summary>
+        /// Сохранение в файл и применение текущих настроек
+        /// </summary>
+        /// <param name="settings">
+        /// Экземпляр класса SettingsData
+        /// </param>
+        public static void SaveAndApply(SettingsData settings)
+        {
+            // Проверка settings.IsValid(...)
+            // Запись свойств settings в конфиг.
+
+            Current = settings.Clone();
+        }
 
         /// <summary>
         /// Получение параметра типа bool c config файла с проверкой
@@ -94,15 +125,8 @@ namespace RTURelayControl
             return ConfigurationManager.AppSettings[key] ?? defaultValue;
         }
 
-        public static void Load()
-        {
-            LoadWav();
-
-            SetMuteButton();
-        }
-
         //Проверка наличия указанного файла WAV на ПК и загрузка его в плеер
-        public static void LoadWav()
+        /*public static void LoadWav()
         {
             if (CheckWav(WavPath))
             {
@@ -114,7 +138,7 @@ namespace RTURelayControl
                 //WavPath = string.Empty;
                 WavFileInfo = null;
             }
-        }
+        }*/
 
         public static void SendMessageInfo(string message)
         {
@@ -127,10 +151,11 @@ namespace RTURelayControl
                MessageBoxOptions.DefaultDesktopOnly);
         }
 
+
         /// <summary>
         /// Обновление текущих настроек в файле App.config
         /// </summary>
-        public static void UpdateSettings()
+        /*public static void UpdateSettings()
         {
             //Открытие файла конфигурации
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -146,7 +171,7 @@ namespace RTURelayControl
             config.Save(ConfigurationSaveMode.Minimal);
 
             ConfigurationManager.RefreshSection("appSettings");
-        }
+        }*/
 
         public static void RefreshConfig()
         {
@@ -159,7 +184,7 @@ namespace RTURelayControl
         /// <param name="numKey">
         /// 0 - NumLock, 1 - CapsLock, 2 - ScrollLock
         /// </param>
-        public static void SetMuteButton(int numKey = -1)
+        /*public static void SetMuteButton(int numKey = -1)
         {
             if (numKey == -1) numKey = MuteKeyNum;
 
@@ -175,7 +200,7 @@ namespace RTURelayControl
                     MuteKey = Keys.Scroll;
                     break;
             }
-        }
+        }*/
         
         /// <summary>
         /// Проверка правильности пути и формата WAV файла
@@ -186,7 +211,7 @@ namespace RTURelayControl
         /// <returns>
         /// Возвращает true в случае подходящего файла
         /// </returns>
-        public static bool CheckWav(string filePath)
+        /*public static bool CheckWav(string filePath)
         {
             if (!System.IO.File.Exists(filePath)) return false;
 
@@ -196,6 +221,6 @@ namespace RTURelayControl
                 return true;
             else
                 return false;
-        }
+        }*/
     }
 }
