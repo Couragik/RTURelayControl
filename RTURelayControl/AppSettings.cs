@@ -48,7 +48,8 @@ namespace RTURelayControl
             {
                 AutoStart = GetBool("AutoStart", false),
                 AutoScan = GetBool("AutoScan", false),
-                PollInterval = GetInt("PollInterval", 100)
+                CyclePollInterval = GetInt("CyclePollInterval", 100),
+                DevicePollInterval = GetInt("DevicePollInterval", 50)
             };
             
             //LoadWav();
@@ -140,6 +141,7 @@ namespace RTURelayControl
             }
         }*/
 
+        /*
         public static void SendMessageInfo(string message)
         {
             MessageBox.Show(
@@ -149,7 +151,7 @@ namespace RTURelayControl
                MessageBoxIcon.Information,
                MessageBoxDefaultButton.Button1,
                MessageBoxOptions.DefaultDesktopOnly);
-        }
+        }*/
 
 
         /// <summary>

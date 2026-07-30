@@ -13,7 +13,8 @@ namespace RTURelayControl
         //Интерфейс
         //Опрос и таймауты
         public bool AutoScan { get; set; }
-        public int PollInterval { get; set; }
+        public int CyclePollInterval { get; set; }
+        public int DevicePollInterval { get; set; }
         //Автоматизация
 
         public SettingsData Clone() 
@@ -22,7 +23,8 @@ namespace RTURelayControl
             {
                 AutoStart = AutoStart,
                 AutoScan = AutoScan,
-                PollInterval = PollInterval
+                CyclePollInterval = CyclePollInterval,
+                DevicePollInterval = DevicePollInterval
             };
         }
     }

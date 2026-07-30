@@ -16,6 +16,7 @@ namespace RTURelayControl
 
         private SettingsData _settingsDraft;
 
+        private bool _formChanged = false;
         public FormSettings(SettingsSectionEnum initialSection)
         {
             _settingsDraft = AppSettings.Current.Clone();
@@ -35,6 +36,12 @@ namespace RTURelayControl
             //Выбираем начальный пункт меню
             _initialSection = initialSection;
             SelectSection(_initialSection);
+
+            //Загрузка текущих настроек в поля формы
+            LoadControlsData(tabControlSettings, _settingsDraft);
+
+            //Включить отслеживаниие изменения формы
+            _formChanged = true;
         }
 
         /// <summary>
@@ -86,6 +93,82 @@ namespace RTURelayControl
             }
         }
 
+        /// <summary>
+        /// Рекурсивная загрузка текущих настроек в форму для отображения пользователю
+        /// </summary>
+        /// <param name="parent">
+        /// Родительский элемент формы для поиска
+        /// </param>
+        /// <param name="settings">
+        /// Источник данных
+        /// </param>
+        private void LoadControlsData(Control parent, SettingsData settings)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.Tag is string propertyName)
+                {
+                    //Описание типа свойства
+                    var property = typeof(SettingsData).GetProperty(propertyName);
+
+                    if (property != null)
+                    {
+                        object value = property.GetValue(settings);
+
+                        //Проверки типов элементов с приведением типа и присвоение данных
+                        if (control is CheckBox checkBox)
+                            checkBox.Checked = (bool)value;
+
+                        else if (control is TextBox textBox)
+                            textBox.Text = value?.ToString() ?? "";
+
+                        else if (control is NumericUpDown numericUpDown)
+                            numericUpDown.Value = Convert.ToDecimal(value);
+                    }
+                }
+
+                LoadControlsData(control, settings);
+            }
+        }
+
+        /// <summary>
+        /// Рекурсивное сохранение данных с формы в источник данных
+        /// </summary>
+        /// <param name="parent">
+        /// Родительский элемент формы для поиска
+        /// </param>
+        /// <param name="settings">
+        /// Источник данных
+        /// </param>
+        private void SaveControlsData(Control parent, SettingsData settings)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control.Tag is string propertyName)
+                {
+                    //Описание типа свойства
+                    var property = typeof(SettingsData).GetProperty(propertyName);
+
+                    if (property != null)
+                    {
+                        //Проверки типов элементов с приведением типа и присвоение данных
+                        if (control is CheckBox checkBox)
+                            property.SetValue(settings, checkBox.Checked);
+
+                        else if (control is TextBox textBox)
+                            property.SetValue(settings, textBox.Text);
+
+                        else if (control is NumericUpDown numericUpDown)
+                            property.SetValue(
+                                settings,
+                                Convert.ToInt32(numericUpDown.Value));
+                    }
+                }
+
+                SaveControlsData(control, settings);
+            }
+        }
+
         private void settingsTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             SelectSettingsTab((SettingsSectionEnum)e.Node.Tag);
@@ -98,8 +181,16 @@ namespace RTURelayControl
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            _settingsDraft.PollInterval = 100;
+            //
+            SaveControlsData(tabControlSettings, _settingsDraft);
+            
+            //Сохранение настроек
             AppSettings.SaveAndApply(_settingsDraft);
+        }
+
+        private void formElements_ValChanged(object sender, EventArgs e)
+        {
+            buttonSave.Enabled = _formChanged;
         }
     }
 }
