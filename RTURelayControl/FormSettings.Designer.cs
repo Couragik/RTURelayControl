@@ -44,15 +44,15 @@
             this.tabTimer = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.numericPollInterval = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxDevicePollInterval = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxAutoScan = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanelCyclePoll = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxCyclePollInterval = new System.Windows.Forms.TextBox();
+            this.numericCyclePollInterval = new System.Windows.Forms.NumericUpDown();
             this.tabAutomat = new System.Windows.Forms.TabPage();
             this.tableLayoutAutomat = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -64,7 +64,9 @@
             this.tabTimer.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPollInterval)).BeginInit();
             this.tableLayoutPanelCyclePoll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCyclePollInterval)).BeginInit();
             this.tabAutomat.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,9 +228,9 @@
             this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tableLayoutPanel2.Controls.Add(this.numericPollInterval, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxDevicePollInterval, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(182, 63);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -236,29 +238,44 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(242, 24);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
+            // numericPollInterval
+            // 
+            this.numericPollInterval.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericPollInterval.Location = new System.Drawing.Point(5, 3);
+            this.numericPollInterval.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.numericPollInterval.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericPollInterval.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericPollInterval.Name = "numericPollInterval";
+            this.numericPollInterval.Size = new System.Drawing.Size(59, 20);
+            this.numericPollInterval.TabIndex = 7;
+            this.numericPollInterval.Tag = "DevicePollInterval";
+            this.numericPollInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericPollInterval.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericPollInterval.ValueChanged += new System.EventHandler(this.formElements_ValChanged);
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(51, 9);
+            this.label6.Location = new System.Drawing.Point(68, 9);
             this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 3, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 13);
             this.label6.TabIndex = 1;
             this.label6.Text = "мс   ( не менее 50мс )";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBoxDevicePollInterval
-            // 
-            this.textBoxDevicePollInterval.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxDevicePollInterval.Location = new System.Drawing.Point(5, 3);
-            this.textBoxDevicePollInterval.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.textBoxDevicePollInterval.Name = "textBoxDevicePollInterval";
-            this.textBoxDevicePollInterval.Size = new System.Drawing.Size(42, 20);
-            this.textBoxDevicePollInterval.TabIndex = 0;
-            this.textBoxDevicePollInterval.Tag = "DevicePollInterval";
-            this.textBoxDevicePollInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxDevicePollInterval.TextChanged += new System.EventHandler(this.formElements_ValChanged);
             // 
             // label5
             // 
@@ -312,9 +329,9 @@
             this.tableLayoutPanelCyclePoll.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanelCyclePoll.ColumnCount = 2;
             this.tableLayoutPanelCyclePoll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelCyclePoll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanelCyclePoll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanelCyclePoll.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanelCyclePoll.Controls.Add(this.textBoxCyclePollInterval, 0, 0);
+            this.tableLayoutPanelCyclePoll.Controls.Add(this.numericCyclePollInterval, 0, 0);
             this.tableLayoutPanelCyclePoll.Location = new System.Drawing.Point(182, 33);
             this.tableLayoutPanelCyclePoll.Name = "tableLayoutPanelCyclePoll";
             this.tableLayoutPanelCyclePoll.RowCount = 1;
@@ -326,7 +343,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 9);
+            this.label4.Location = new System.Drawing.Point(68, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 3, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 13);
@@ -334,17 +351,32 @@
             this.label4.Text = "мс   ( не менее 100мс )";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBoxCyclePollInterval
+            // numericCyclePollInterval
             // 
-            this.textBoxCyclePollInterval.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxCyclePollInterval.Location = new System.Drawing.Point(5, 3);
-            this.textBoxCyclePollInterval.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.textBoxCyclePollInterval.Name = "textBoxCyclePollInterval";
-            this.textBoxCyclePollInterval.Size = new System.Drawing.Size(42, 20);
-            this.textBoxCyclePollInterval.TabIndex = 0;
-            this.textBoxCyclePollInterval.Tag = "CyclePollInterval";
-            this.textBoxCyclePollInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxCyclePollInterval.TextChanged += new System.EventHandler(this.formElements_ValChanged);
+            this.numericCyclePollInterval.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.numericCyclePollInterval.Location = new System.Drawing.Point(5, 3);
+            this.numericCyclePollInterval.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.numericCyclePollInterval.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericCyclePollInterval.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericCyclePollInterval.Name = "numericCyclePollInterval";
+            this.numericCyclePollInterval.Size = new System.Drawing.Size(59, 20);
+            this.numericCyclePollInterval.TabIndex = 6;
+            this.numericCyclePollInterval.Tag = "CyclePollInterval";
+            this.numericCyclePollInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericCyclePollInterval.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericCyclePollInterval.ValueChanged += new System.EventHandler(this.formElements_ValChanged);
             // 
             // tabAutomat
             // 
@@ -419,8 +451,10 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPollInterval)).EndInit();
             this.tableLayoutPanelCyclePoll.ResumeLayout(false);
             this.tableLayoutPanelCyclePoll.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCyclePollInterval)).EndInit();
             this.tabAutomat.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -446,11 +480,11 @@
         private System.Windows.Forms.CheckBox checkBoxAutoScan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCyclePoll;
-        private System.Windows.Forms.TextBox textBoxCyclePollInterval;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxDevicePollInterval;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericCyclePollInterval;
+        private System.Windows.Forms.NumericUpDown numericPollInterval;
     }
 }

@@ -32,8 +32,6 @@ namespace RTURelayControl
 
             AppSettings.Load();
 
-            AppSettings.RefreshConfig();
-
             dataGridView1.ColumnCount = 3;
 
 

@@ -181,11 +181,28 @@ namespace RTURelayControl
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //
+            //Переносим параметры с формы в переменную
             SaveControlsData(tabControlSettings, _settingsDraft);
-            
+
+            List<string> errors;
+
+            //Проверка введенных значений
+            if(!_settingsDraft.IsValid(out errors))
+            {
+                MessageBox.Show(
+                    string.Join(
+                        Environment.NewLine, 
+                        errors.Select(error => "• " + error)),
+                    "Неверные настройки",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             //Сохранение настроек
             AppSettings.SaveAndApply(_settingsDraft);
+
+            this.Close();
         }
 
         private void formElements_ValChanged(object sender, EventArgs e)

@@ -27,5 +27,31 @@ namespace RTURelayControl
                 DevicePollInterval = DevicePollInterval
             };
         }
+
+        /// <summary>
+        /// Проверка используемых параметров на правильность значений
+        /// </summary>
+        /// <param name="errors">
+        /// Дополнительно возвращаемая переменная с списком ошибок если такие найдены
+        /// </param>
+        /// <returns>
+        /// Возвращает параметр типа bool сообщающий о правильности введенных значений
+        /// </returns>
+        public bool IsValid(out List<string> errors)
+        {
+            errors = new List<string>();
+
+            if(CyclePollInterval < 100)
+            {
+                errors.Add("Интервал между полными циклами опроса должен быть более 100мс");
+            }
+
+            if(DevicePollInterval < 50)
+            {
+                errors.Add("Интервал опроса между устройствами должен быть более 50мс");
+            }
+
+            return errors.Count == 0;
+        }
     }
 }

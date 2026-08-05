@@ -13,8 +13,7 @@ namespace RTURelayControl
     public static class AppSettings
     {
         public static SettingsData Current {  get; private set; }
-        
-        
+
         /*
         public static string WavPath => GetString("WavPath", "");
         public static string FullWavPath;
@@ -29,19 +28,9 @@ namespace RTURelayControl
         //public string ProgramPath = System.IO.Path.Combine(Directory.GetCurrentDirectory());
         //openFileDialogWAV.InitialDirectory = System.IO.Path.GetFullPath(CombinedPath);
 
-        //Так сделаем обновление конфиг файла
-        //ConfigurationManager.RefreshSection("appSettings");
-
-        /*
-         * А вот так сделаем переменную с кэшем
-        public static bool AutoStart { get; private set; }
-
-        public static void Load()
-        {
-            AutoStart = GetBool("AutoStart", false);
-        }
-        */
-
+        /// <summary>
+        /// Загрузка настроек из файла конфигурации в AppSettings.Current
+        /// </summary>
         public static void Load()
         {
             Current = new SettingsData
@@ -65,10 +54,55 @@ namespace RTURelayControl
         /// </param>
         public static void SaveAndApply(SettingsData settings)
         {
-            // Проверка settings.IsValid(...)
-            // Запись свойств settings в конфиг.
+            List<string> errors;
+
+            if (!settings.IsValid(out errors))
+            {
+                throw new ArgumentException(
+                    string.Join(Environment.NewLine, errors),
+                    nameof(settings));
+            }
+
+            //Открытие файла конфигурации
+            Configuration config = ConfigurationManager.OpenExeConfiguration(
+                ConfigurationUserLevel.None);
+
+            // Создаем коллекцию значений из открытой конфигурации
+            KeyValueConfigurationCollection values = config.AppSettings.Settings;
+
+            //Поочереди заносим все параметры
+            SetValue(values, "AutoStart", settings.AutoStart.ToString());
+            SetValue(values, "AutoScan", settings.AutoScan.ToString());
+            SetValue(values, "CyclePollInterval", settings.CyclePollInterval.ToString());
+            SetValue(values, "DevicePollInterval", settings.DevicePollInterval.ToString());
+            //SetValue(values, "WavPath", settings.WavPath ?? "");
+
+            //Записываем изменения и обновляем файл App.config
+            config.Save(ConfigurationSaveMode.Minimal);
+            ConfigurationManager.RefreshSection("appSettings");
 
             Current = settings.Clone();
+        }
+        /// <summary>
+        /// Занесение в файл конфигурации параметра со значением, при отсутствии, создается 
+        /// </summary>
+        /// <param name="settings">
+        /// Коллекция значений конфигурации для изменения
+        /// </param>
+        /// <param name="key">
+        /// Имя ключа для поиска параметра
+        /// </param>
+        /// <param name="value">
+        /// Вносимое значение для указанного параметра
+        /// </param>
+        private static void SetValue(
+            KeyValueConfigurationCollection settings, 
+            string key, string value)
+        {
+            if (settings[key] == null)
+                settings.Add(key, value);
+            else
+                settings[key].Value = value;
         }
 
         /// <summary>
@@ -140,45 +174,6 @@ namespace RTURelayControl
                 WavFileInfo = null;
             }
         }*/
-
-        /*
-        public static void SendMessageInfo(string message)
-        {
-            MessageBox.Show(
-               message,
-               "Сообщение",
-               MessageBoxButtons.OK,
-               MessageBoxIcon.Information,
-               MessageBoxDefaultButton.Button1,
-               MessageBoxOptions.DefaultDesktopOnly);
-        }*/
-
-
-        /// <summary>
-        /// Обновление текущих настроек в файле App.config
-        /// </summary>
-        /*public static void UpdateSettings()
-        {
-            //Открытие файла конфигурации
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            //Обновляем параметры в файле App.config
-            config.AppSettings.Settings["PollInterval"].Value = PollInterval.ToString();
-            config.AppSettings.Settings["WavPath"].Value = WavPath;
-            config.AppSettings.Settings["MuteKeyNum"].Value = MuteKeyNum.ToString();
-            config.AppSettings.Settings["AutoStart"].Value = AutoStart.ToString();
-            config.AppSettings.Settings["AutoScan"].Value = AutoScan.ToString();
-
-            //Записываем изменения
-            config.Save(ConfigurationSaveMode.Minimal);
-
-            ConfigurationManager.RefreshSection("appSettings");
-        }*/
-
-        public static void RefreshConfig()
-        {
-            ConfigurationManager.RefreshSection("appSettings");
-        }
 
         /// <summary>
         /// Задаем кнопку для отключения звука по ее номеру
