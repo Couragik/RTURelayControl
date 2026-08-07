@@ -14,14 +14,18 @@ namespace RTURelayControl
         public AboutBox()
         {
             InitializeComponent();
-            this.Text = String.Format("О программе {0}", AssemblyTitle);
+            this.Text = String.Format(Resources.UiText.AboutBoxCaption +
+                " {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Версия {0}", AssemblyVersion);
+            this.labelVersion.Text = String.Format(Resources.UiText.AboutBoxVersion +
+                " {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
-            this.textBoxDescription.Text += Environment.NewLine + "Для связи:" +
-                " greben_kov@mail.ru," + Environment.NewLine + "telegram: @Couragik";
+            this.textBoxDescription.Text = Resources.UiText.AboutBoxDescription;
+            //this.textBoxDescription.Text = AssemblyDescription;
+            this.textBoxDescription.Text += Environment.NewLine + 
+                Resources.UiText.AboutBoxFeedBack + " greben_kov@mail.ru," + 
+                Environment.NewLine + "telegram: @Couragik";
         }
 
         #region Методы доступа к атрибутам сборки

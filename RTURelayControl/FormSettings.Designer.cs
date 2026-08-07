@@ -38,7 +38,7 @@
             this.tabProgram = new System.Windows.Forms.TabPage();
             this.tableLayoutProgram = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxAutoStart = new System.Windows.Forms.CheckBox();
             this.tabInterface = new System.Windows.Forms.TabPage();
             this.tableLayoutInterface = new System.Windows.Forms.TableLayoutPanel();
             this.tabTimer = new System.Windows.Forms.TabPage();
@@ -127,7 +127,7 @@
             this.tableLayoutProgram.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.68958F));
             this.tableLayoutProgram.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.31042F));
             this.tableLayoutProgram.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutProgram.Controls.Add(this.checkBox1, 1, 0);
+            this.tableLayoutProgram.Controls.Add(this.checkBoxAutoStart, 1, 0);
             this.tableLayoutProgram.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutProgram.Name = "tableLayoutProgram";
             this.tableLayoutProgram.RowCount = 3;
@@ -149,19 +149,19 @@
             this.label1.Text = "Запускать при старте Windows";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // checkBox1
+            // checkBoxAutoStart
             // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.Location = new System.Drawing.Point(189, 9);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(10, 5, 3, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Tag = "AutoStart";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckStateChanged += new System.EventHandler(this.formElements_ValChanged);
+            this.checkBoxAutoStart.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBoxAutoStart.AutoSize = true;
+            this.checkBoxAutoStart.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxAutoStart.Location = new System.Drawing.Point(189, 9);
+            this.checkBoxAutoStart.Margin = new System.Windows.Forms.Padding(10, 5, 3, 3);
+            this.checkBoxAutoStart.Name = "checkBoxAutoStart";
+            this.checkBoxAutoStart.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAutoStart.TabIndex = 1;
+            this.checkBoxAutoStart.Tag = "AutoStart";
+            this.checkBoxAutoStart.UseVisualStyleBackColor = true;
+            this.checkBoxAutoStart.CheckStateChanged += new System.EventHandler(this.formElements_ValChanged);
             // 
             // tabInterface
             // 
@@ -472,7 +472,7 @@
         private System.Windows.Forms.TabPage tabAutomat;
         private System.Windows.Forms.TableLayoutPanel tableLayoutProgram;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxAutoStart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutInterface;
         private System.Windows.Forms.TableLayoutPanel tableLayoutAutomat;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

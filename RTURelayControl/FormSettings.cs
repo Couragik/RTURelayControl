@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RTURelayControl.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,17 +14,35 @@ namespace RTURelayControl
     public partial class FormSettings : Form
     {
         private readonly SettingsSectionEnum _initialSection;
+        private readonly AppRuntimeState _appRuntimeState;      
 
         private SettingsData _settingsDraft;
 
         private bool _formChanged = false;
-        public FormSettings(SettingsSectionEnum initialSection)
+        public FormSettings(SettingsSectionEnum initialSection, AppRuntimeState appRuntimeState)
         {
             _settingsDraft = AppSettings.Current.Clone();
+            _appRuntimeState = appRuntimeState;
+            _initialSection = initialSection;
 
             InitializeComponent();
+
             InitializeTags();
 
+            InitializeFormElements();
+            
+            //Загрузка текущих настроек в поля формы
+            LoadControlsData(tabControlSettings, _settingsDraft);
+
+            //Включить отслеживаниие изменения формы
+            _formChanged = true;
+        }
+
+        /// <summary>
+        /// Инициализируем элементы формы и меняем их вид
+        /// </summary>
+        private void InitializeFormElements()
+        {
             //Изменяем вид tabControlSettings убрав заголовки
             tabControlSettings.Appearance = TabAppearance.FlatButtons;
             tabControlSettings.ItemSize = new Size(0, 1);
@@ -34,14 +53,10 @@ namespace RTURelayControl
             settingsTreeView.ExpandAll();
             
             //Выбираем начальный пункт меню
-            _initialSection = initialSection;
             SelectSection(_initialSection);
 
-            //Загрузка текущих настроек в поля формы
-            LoadControlsData(tabControlSettings, _settingsDraft);
-
-            //Включить отслеживаниие изменения формы
-            _formChanged = true;
+            //Включаем доступ к настройке автозапуска
+            checkBoxAutoStart.Enabled = _appRuntimeState.IsRunAsAdmin;
         }
 
         /// <summary>
@@ -193,7 +208,7 @@ namespace RTURelayControl
                     string.Join(
                         Environment.NewLine, 
                         errors.Select(error => "• " + error)),
-                    "Неверные настройки",
+                    Resources.UiText.SettingsFormErrMessage,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;

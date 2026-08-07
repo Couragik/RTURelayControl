@@ -43,12 +43,12 @@ namespace RTURelayControl
 
             if(CyclePollInterval < 100)
             {
-                errors.Add("Интервал между полными циклами опроса должен быть более 100мс");
+                errors.Add(Resources.ErrorMessages.LowCyclePollIntervalSet);
             }
 
-            if(DevicePollInterval < 50)
+            if (DevicePollInterval < 50)
             {
-                errors.Add("Интервал опроса между устройствами должен быть более 50мс");
+                errors.Add(Resources.ErrorMessages.LowDevicePollIntervalSet);
             }
 
             return errors.Count == 0;

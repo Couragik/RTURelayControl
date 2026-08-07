@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Net.Configuration;
+using RTURelayControl.Models;
 
 namespace RTURelayControl
 {
-    
     //Создаем список enum для открытия нужной секции в окне настроек
     public enum SettingsSectionEnum
     {
@@ -20,15 +20,20 @@ namespace RTURelayControl
         Interface,
         Timer,
         Automat
-    
     }
 
     public partial class Form1 : Form
     {
+        private readonly AppRuntimeState _appRuntimeState;
+
         public Form1()
         {
+            //Создаем экземпляр с текущими параметрами работы приложения
+            _appRuntimeState = new AppRuntimeState();
+
             InitializeComponent();
             InitializeMenuTags();
+            InitializeFormElements();
 
             AppSettings.Load();
 
@@ -96,6 +101,9 @@ namespace RTURelayControl
 
         }
 
+        /// <summary>
+        /// Добавление тегов к пунктам ToolStripMenu
+        /// </summary>
         public void InitializeMenuTags()
         {   
             programsetToolStripMenuItem.Tag = SettingsSectionEnum.Program;
@@ -104,12 +112,21 @@ namespace RTURelayControl
             automatsetToolStripMenuItem.Tag = SettingsSectionEnum.Automat;
         }
 
+        /// <summary>
+        /// Инициализация пользовательского интерфейса и элементов формы
+        /// </summary>
+        private void InitializeFormElements()
+        {
+            if (_appRuntimeState.IsRunAsAdmin)
+                this.Text += " (" + Resources.UiText.IsAdminRights + ")";
+        }
+
         private void SettingsMenuItem_Click(object sender, EventArgs e)
         {
             var menuItem = (ToolStripMenuItem)sender;
             var section = (SettingsSectionEnum)menuItem.Tag;
 
-            using (var settingsForm = new FormSettings(section))
+            using (var settingsForm = new FormSettings(section, _appRuntimeState))
             {
                 settingsForm.ShowDialog();
             }
