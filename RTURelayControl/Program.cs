@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RTURelayControl.Models;
+using RTURelayControl.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +16,15 @@ namespace RTURelayControl
         [STAThread]
         static void Main()
         {
+            //Загрузка Сервисов
+            var winIntegrationService = new WinIntegrationService();
+
+            //Загрузка моделей
+            var appRuntimeState = new AppRuntimeState(winIntegrationService.CheckAdminRights());
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1(appRuntimeState, winIntegrationService));
         }
     }
 }

@@ -133,9 +133,17 @@
     <value>Версия</value>
     <comment>Заголовок версии</comment>
   </data>
+  <data name="ErrMessageBox" xml:space="preserve">
+    <value>Ошибка</value>
+    <comment>Заголовок общго окна с ошибками</comment>
+  </data>
   <data name="IsAdminRights" xml:space="preserve">
     <value>Администратор</value>
     <comment>Ярлык добавляемый для отображения работы программы от имени администратора</comment>
+  </data>
+  <data name="SettingsAutoStartChngErr" xml:space="preserve">
+    <value>Не удалось изменить настройку автозагрузки приложения</value>
+    <comment>Отображается в случае возникновения ошибки при работе с реестром</comment>
   </data>
   <data name="SettingsFormErrMessage" xml:space="preserve">
     <value>Неверные настройки</value>

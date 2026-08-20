@@ -103,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UiText.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\WinIntegrationService.cs" />
     <Compile Include="SettingsData.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -162,8 +163,6 @@
   <ItemGroup>
     <Content Include="RTU.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

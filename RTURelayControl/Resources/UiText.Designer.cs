@@ -97,11 +97,29 @@ namespace RTURelayControl.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка.
+        /// </summary>
+        internal static string ErrMessageBox {
+            get {
+                return ResourceManager.GetString("ErrMessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Администратор.
         /// </summary>
         internal static string IsAdminRights {
             get {
                 return ResourceManager.GetString("IsAdminRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось изменить настройку автозагрузки приложения.
+        /// </summary>
+        internal static string SettingsAutoStartChngErr {
+            get {
+                return ResourceManager.GetString("SettingsAutoStartChngErr", resourceCulture);
             }
         }
         

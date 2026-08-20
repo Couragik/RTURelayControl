@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Net.Configuration;
 using RTURelayControl.Models;
+using RTURelayControl.Services;
 
 namespace RTURelayControl
 {
@@ -25,11 +26,15 @@ namespace RTURelayControl
     public partial class Form1 : Form
     {
         private readonly AppRuntimeState _appRuntimeState;
+        private readonly WinIntegrationService _winIntegrationService;
 
-        public Form1()
+        public Form1(
+            AppRuntimeState appRuntimeState,
+            WinIntegrationService winIntegrationService)
         {
             //Создаем экземпляр с текущими параметрами работы приложения
-            _appRuntimeState = new AppRuntimeState();
+            _appRuntimeState = appRuntimeState;
+            _winIntegrationService = winIntegrationService;
 
             InitializeComponent();
             InitializeMenuTags();
@@ -126,7 +131,10 @@ namespace RTURelayControl
             var menuItem = (ToolStripMenuItem)sender;
             var section = (SettingsSectionEnum)menuItem.Tag;
 
-            using (var settingsForm = new FormSettings(section, _appRuntimeState))
+            using (var settingsForm = new FormSettings(
+                section, 
+                _appRuntimeState, 
+                _winIntegrationService))
             {
                 settingsForm.ShowDialog();
             }

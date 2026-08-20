@@ -1,4 +1,5 @@
 ﻿using RTURelayControl.Models;
+using RTURelayControl.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,21 @@ namespace RTURelayControl
     public partial class FormSettings : Form
     {
         private readonly SettingsSectionEnum _initialSection;
-        private readonly AppRuntimeState _appRuntimeState;      
+        private readonly AppRuntimeState _appRuntimeState;
+        private readonly WinIntegrationService _winIntegrationService;
 
         private SettingsData _settingsDraft;
 
         private bool _formChanged = false;
-        public FormSettings(SettingsSectionEnum initialSection, AppRuntimeState appRuntimeState)
+        public FormSettings(
+            SettingsSectionEnum initialSection, 
+            AppRuntimeState appRuntimeState,
+            WinIntegrationService winIntegrationService)
         {
             _settingsDraft = AppSettings.Current.Clone();
             _appRuntimeState = appRuntimeState;
             _initialSection = initialSection;
+            _winIntegrationService = winIntegrationService;
 
             InitializeComponent();
 
@@ -55,8 +61,11 @@ namespace RTURelayControl
             //Выбираем начальный пункт меню
             SelectSection(_initialSection);
 
-            //Включаем доступ к настройке автозапуска
-            checkBoxAutoStart.Enabled = _appRuntimeState.IsRunAsAdmin;
+            //Доступ к настройке автозапуска при работе от имени администратора
+            //checkBoxAutoStart.Enabled = _appRuntimeState.IsRunAsAdmin;
+
+            //Проверка наличия автозагрузки приложения в системе
+            _settingsDraft.AutoStart = _winIntegrationService.AutoStartIsEnabled();
         }
 
         /// <summary>
@@ -212,6 +221,16 @@ namespace RTURelayControl
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
+            }
+
+            //Установка режима автозагрузки согласно чекбоксу
+            if(!_winIntegrationService.AutoStartSetEnabled(_settingsDraft.AutoStart))
+            {
+                MessageBox.Show(
+                    Resources.UiText.SettingsAutoStartChngErr,
+                    Resources.UiText.ErrMessageBox,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
 
             //Сохранение настроек
