@@ -140,6 +140,18 @@ namespace RTURelayControl
             }
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void connoptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var portSettings = new PortSettings())
+            {
+                portSettings.ShowDialog();
+            }
+        }
     }
 
     public class RelayInfo

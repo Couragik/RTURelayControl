@@ -133,6 +133,22 @@
     <value>Версия</value>
     <comment>Заголовок версии</comment>
   </data>
+  <data name="ButtonAccept" xml:space="preserve">
+    <value>Применить</value>
+    <comment>Подписи всех  ButtonAccept</comment>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+    <comment>Подписи всех ButtonCancel</comment>
+  </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>Закрыть</value>
+    <comment>Подписи всех ButtonClose</comment>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+    <comment>Подписи всех ButtonSave</comment>
+  </data>
   <data name="ErrMessageBox" xml:space="preserve">
     <value>Ошибка</value>
     <comment>Заголовок общго окна с ошибками</comment>
@@ -140,6 +156,45 @@
   <data name="IsAdminRights" xml:space="preserve">
     <value>Администратор</value>
     <comment>Ярлык добавляемый для отображения работы программы от имени администратора</comment>
+  </data>
+  <data name="PortSettingsCaption" xml:space="preserve">
+    <value>Параметры порта</value>
+    <comment>Заголовок формы PortSettings</comment>
+  </data>
+  <data name="PortSettingsCBoxParityEven" xml:space="preserve">
+    <value>Чет</value>
+    <comment>Подписи для ComboBox с отображением параметра "Четность"</comment>
+  </data>
+  <data name="PortSettingsCBoxParityMark" xml:space="preserve">
+    <value>Маркер</value>
+    <comment>Подписи для ComboBox с отображением параметра "Четность"</comment>
+  </data>
+  <data name="PortSettingsCBoxParityNone" xml:space="preserve">
+    <value>Нет</value>
+    <comment>Подписи для ComboBox с отображением параметра "Четность"</comment>
+  </data>
+  <data name="PortSettingsCBoxParityOdd" xml:space="preserve">
+    <value>Нечет</value>
+    <comment>Подписи для ComboBox с отображением параметра "Четность"</comment>
+  </data>
+  <data name="PortSettingsCBoxParitySpace" xml:space="preserve">
+    <value>Пробел</value>
+    <comment>Подписи для ComboBox с отображением параметра "Четность"</comment>
+  </data>
+  <data name="PortSettingsLabelBaudRate" xml:space="preserve">
+    <value>Бит в секунду:</value>
+  </data>
+  <data name="PortSettingsLabelCOMPort" xml:space="preserve">
+    <value>Номер COM порта:</value>
+  </data>
+  <data name="PortSettingsLabelDataBit" xml:space="preserve">
+    <value>Бит данных:</value>
+  </data>
+  <data name="PortSettingsLabelParity" xml:space="preserve">
+    <value>Четность:</value>
+  </data>
+  <data name="PortSettingsLabelStopBit" xml:space="preserve">
+    <value>Стоповые биты:</value>
   </data>
   <data name="SettingsAutoStartChngErr" xml:space="preserve">
     <value>Не удалось изменить настройку автозагрузки приложения</value>

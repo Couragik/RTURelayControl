@@ -98,8 +98,9 @@ namespace RTURelayControl
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Выход";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // connectionsToolStripMenuItem
             // 
@@ -141,6 +142,7 @@ namespace RTURelayControl
             this.connoptionsToolStripMenuItem.Name = "connoptionsToolStripMenuItem";
             this.connoptionsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.connoptionsToolStripMenuItem.Text = "Параметры порта...";
+            this.connoptionsToolStripMenuItem.Click += new System.EventHandler(this.connoptionsToolStripMenuItem_Click);
             // 
             // devicesToolStripMenuItem
             // 

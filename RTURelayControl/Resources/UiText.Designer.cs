@@ -97,6 +97,42 @@ namespace RTURelayControl.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Применить.
+        /// </summary>
+        internal static string ButtonAccept {
+            get {
+                return ResourceManager.GetString("ButtonAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отмена.
+        /// </summary>
+        internal static string ButtonCancel {
+            get {
+                return ResourceManager.GetString("ButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Закрыть.
+        /// </summary>
+        internal static string ButtonClose {
+            get {
+                return ResourceManager.GetString("ButtonClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сохранить.
+        /// </summary>
+        internal static string ButtonSave {
+            get {
+                return ResourceManager.GetString("ButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка.
         /// </summary>
         internal static string ErrMessageBox {
@@ -111,6 +147,105 @@ namespace RTURelayControl.Resources {
         internal static string IsAdminRights {
             get {
                 return ResourceManager.GetString("IsAdminRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Параметры порта.
+        /// </summary>
+        internal static string PortSettingsCaption {
+            get {
+                return ResourceManager.GetString("PortSettingsCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Чет.
+        /// </summary>
+        internal static string PortSettingsCBoxParityEven {
+            get {
+                return ResourceManager.GetString("PortSettingsCBoxParityEven", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Маркер.
+        /// </summary>
+        internal static string PortSettingsCBoxParityMark {
+            get {
+                return ResourceManager.GetString("PortSettingsCBoxParityMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нет.
+        /// </summary>
+        internal static string PortSettingsCBoxParityNone {
+            get {
+                return ResourceManager.GetString("PortSettingsCBoxParityNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нечет.
+        /// </summary>
+        internal static string PortSettingsCBoxParityOdd {
+            get {
+                return ResourceManager.GetString("PortSettingsCBoxParityOdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пробел.
+        /// </summary>
+        internal static string PortSettingsCBoxParitySpace {
+            get {
+                return ResourceManager.GetString("PortSettingsCBoxParitySpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Бит в секунду:.
+        /// </summary>
+        internal static string PortSettingsLabelBaudRate {
+            get {
+                return ResourceManager.GetString("PortSettingsLabelBaudRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Номер COM порта:.
+        /// </summary>
+        internal static string PortSettingsLabelCOMPort {
+            get {
+                return ResourceManager.GetString("PortSettingsLabelCOMPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Бит данных:.
+        /// </summary>
+        internal static string PortSettingsLabelDataBit {
+            get {
+                return ResourceManager.GetString("PortSettingsLabelDataBit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Четность:.
+        /// </summary>
+        internal static string PortSettingsLabelParity {
+            get {
+                return ResourceManager.GetString("PortSettingsLabelParity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Стоповые биты:.
+        /// </summary>
+        internal static string PortSettingsLabelStopBit {
+            get {
+                return ResourceManager.GetString("PortSettingsLabelStopBit", resourceCulture);
             }
         }
         
